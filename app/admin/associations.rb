@@ -1,5 +1,7 @@
 ActiveAdmin.register Association do
 
+ permit_params :name, :source_association_id, :through_association_id, :origin_model_id, :terminus_model_id, :foreign_key, :nature
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
