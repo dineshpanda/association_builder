@@ -55,6 +55,8 @@ class Association < ApplicationRecord
 
   # Scopes
 
+  scope :indirect, -> { where(:nature => [:indirect]) }
+
   def to_s
     name
   end
