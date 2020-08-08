@@ -3,6 +3,11 @@ class Association < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :indirect_terminus_model,
+             :class_name => "Model",
+             :foreign_key => "terminus_model_id",
+             :counter_cache => :indirect_terminating_associations_count
+
   belongs_to :indirect_origin_model,
              :class_name => "Model",
              :foreign_key => "origin_model_id",
