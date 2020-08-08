@@ -3,7 +3,8 @@ class AssociationsController < ApplicationController
 
   # GET /associations
   def index
-    @associations = Association.page(params[:page]).per(10)
+    @q = Association.ransack(params[:q])
+    @associations = @q.result(:distinct => true).includes(:origin_model, :terminus_model, :direct_origin_model, :direct_terminus_model, :indirect_origin_model, :indirect_terminus_model, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association).page(params[:page]).per(10)
   end
 
   # GET /associations/1
