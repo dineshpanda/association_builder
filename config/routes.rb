@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "models#index"
   resources :ideas
   resources :associations
   devise_for :users
