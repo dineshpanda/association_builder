@@ -4,6 +4,8 @@ RSpec.describe Model, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:idea) }
+
     it { should have_many(:indirect_terminating_associations) }
 
     it { should have_many(:indirect_originating_associations) }
