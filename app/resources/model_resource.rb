@@ -7,6 +7,10 @@ class ModelResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :direct_terminating_associations,
+             resource: AssociationResource,
+             foreign_key: :terminus_model_id
+
   has_many   :direct_originating_associations,
              resource: AssociationResource,
              foreign_key: :origin_model_id
