@@ -3,6 +3,15 @@ class Association < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :source_association,
+             :class_name => "Association",
+             :counter_cache => :indirect_associations_as_source_count
+
+  has_many   :indirect_associations_as_source,
+             :class_name => "Association",
+             :foreign_key => "source_association_id",
+             :dependent => :destroy
+
   belongs_to :indirect_terminus_model,
              :class_name => "Model",
              :foreign_key => "terminus_model_id",

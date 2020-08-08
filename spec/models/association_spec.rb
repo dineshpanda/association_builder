@@ -4,6 +4,10 @@ RSpec.describe Association, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:source_association) }
+
+    it { should have_many(:indirect_associations_as_source) }
+
     it { should belong_to(:indirect_terminus_model) }
 
     it { should belong_to(:indirect_origin_model) }
