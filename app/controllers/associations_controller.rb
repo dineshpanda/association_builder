@@ -3,7 +3,7 @@ class AssociationsController < ApplicationController
 
   # GET /associations
   def index
-    @associations = Association.all
+    @associations = Association.page(params[:page]).per(10)
   end
 
   # GET /associations/1
