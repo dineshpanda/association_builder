@@ -3,6 +3,10 @@ class Association < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :origin_model,
+             :class_name => "Model",
+             :counter_cache => :originating_associations_count
+
   # Indirect associations
 
   # Validations
