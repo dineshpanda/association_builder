@@ -13,7 +13,7 @@ class Api::V1::AssociationsController < Api::V1::GraphitiController
     association = AssociationResource.build(params)
 
     if association.save
-      render jsonapi: association, status: 201
+      render jsonapi: association, status: :created
     else
       render jsonapi_errors: association
     end
@@ -33,7 +33,7 @@ class Api::V1::AssociationsController < Api::V1::GraphitiController
     association = AssociationResource.find(params)
 
     if association.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: association
     end

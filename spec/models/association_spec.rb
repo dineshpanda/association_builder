@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Association, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:through_association) }
 
     it { should have_many(:indirect_associations_as_through) }
@@ -23,14 +21,11 @@ RSpec.describe Association, type: :model do
     it { should belong_to(:terminus_model) }
 
     it { should belong_to(:origin_model) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end
