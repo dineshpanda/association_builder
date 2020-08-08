@@ -12,6 +12,13 @@ class AssociationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :source_association,
+             resource: AssociationResource
+
+  has_many   :indirect_associations_as_source,
+             resource: AssociationResource,
+             foreign_key: :source_association_id
+
   belongs_to :indirect_terminus_model,
              resource: ModelResource,
              foreign_key: :terminus_model_id
