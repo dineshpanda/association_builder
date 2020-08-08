@@ -172,7 +172,7 @@
 
     <%= f.label :nature %>
     <!-- Input for nature start -->
-    <%= f.number_field :nature, class: nature_class, placeholder: "Enter nature" %>
+    <%= f.select :nature, options_for_select(Association.natures.keys), {}, class: "form-control" %>
     <!-- Input for nature end -->
     <% if nature_was_invalid %>
       <% association.errors.full_messages_for(:nature).each do |message| %>

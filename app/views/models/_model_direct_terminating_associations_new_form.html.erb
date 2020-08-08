@@ -57,7 +57,7 @@
   <div class="form-group">
     <%= f.label :nature %>
     <!-- Input for nature start -->
-    <%= f.text_field :nature, class: "form-control" %>
+    <%= f.select :nature, options_for_select(Association.natures.keys), {}, class: "form-control" %>
     <!-- Input for nature end -->
   </div>
   <!-- Label and input for nature end -->
