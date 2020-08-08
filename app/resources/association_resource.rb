@@ -12,6 +12,9 @@ class AssociationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :origin_model,
+             resource: ModelResource
+
   # Indirect associations
 
 end
