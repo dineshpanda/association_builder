@@ -12,6 +12,13 @@ class AssociationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :through_association,
+             resource: AssociationResource
+
+  has_many   :indirect_associations_as_through,
+             resource: AssociationResource,
+             foreign_key: :through_association_id
+
   belongs_to :source_association,
              resource: AssociationResource
 
