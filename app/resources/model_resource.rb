@@ -7,6 +7,8 @@ class ModelResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :idea
+
   has_many   :indirect_terminating_associations,
              resource: AssociationResource,
              foreign_key: :terminus_model_id
