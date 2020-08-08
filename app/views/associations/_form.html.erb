@@ -68,7 +68,7 @@
 
     <%= f.label :through_association_id %>
     <!-- Input for through_association_id start -->
-    <%= f.number_field :through_association_id, class: through_association_id_class, placeholder: "Enter through association" %>
+    <%= f.select :through_association_id, options_from_collection_for_select(Association.all, :id, :to_s, @association.through_association_id), {}, class: "form-control" %>
     <!-- Input for through_association_id end -->
     <% if through_association_id_was_invalid %>
       <% association.errors.full_messages_for(:through_association_id).each do |message| %>
