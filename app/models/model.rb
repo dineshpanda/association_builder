@@ -35,6 +35,14 @@ class Model < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :terminating_associations,
+             :through => :terminating_associations,
+             :source => :origin_model
+
+  has_many   :terminus_models,
+             :through => :originating_associations,
+             :source => :terminus_model
+
   has_many   :indirect_origin_models,
              :through => :indirect_terminating_associations,
              :source => :indirect_origin_model
