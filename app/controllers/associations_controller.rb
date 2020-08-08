@@ -1,24 +1,19 @@
 class AssociationsController < ApplicationController
   before_action :set_association, only: %i[show edit update destroy]
 
-  # GET /associations
   def index
     @q = Association.ransack(params[:q])
     @associations = @q.result(distinct: true).includes(:origin_model, :terminus_model, :direct_origin_model, :direct_terminus_model, :indirect_origin_model, :indirect_terminus_model, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_source, :source_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association, :indirect_associations_as_through, :through_association).page(params[:page]).per(10)
   end
 
-  # GET /associations/1
   def show; end
 
-  # GET /associations/new
   def new
     @association = Association.new
   end
 
-  # GET /associations/1/edit
   def edit; end
 
-  # POST /associations
   def create
     @association = Association.new(association_params)
 
@@ -34,7 +29,6 @@ class AssociationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /associations/1
   def update
     if @association.update(association_params)
       redirect_to @association, notice: "Association was successfully updated."
@@ -43,7 +37,6 @@ class AssociationsController < ApplicationController
     end
   end
 
-  # DELETE /associations/1
   def destroy
     @association.destroy
     message = "Association was successfully deleted."
@@ -56,12 +49,10 @@ class AssociationsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_association
     @association = Association.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def association_params
     params.require(:association).permit(:name, :source_association_id, :through_association_id, :origin_model_id, :terminus_model_id, :foreign_key, :nature)
   end
