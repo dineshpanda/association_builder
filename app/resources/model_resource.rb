@@ -35,6 +35,22 @@ class ModelResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :terminating_associations, resource: ModelResource do
+    assign_each do |model, models|
+      models.select do |m|
+        m.id.in?(model.terminating_associations.map(&:id))
+      end
+    end
+  end
+
+  has_many :terminus_models, resource: ModelResource do
+    assign_each do |model, models|
+      models.select do |m|
+        m.id.in?(model.terminus_models.map(&:id))
+      end
+    end
+  end
+
   has_many :indirect_origin_models, resource: ModelResource do
     assign_each do |model, models|
       models.select do |m|
