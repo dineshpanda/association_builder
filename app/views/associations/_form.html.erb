@@ -42,7 +42,7 @@
 
     <%= f.label :source_association_id %>
     <!-- Input for source_association_id start -->
-    <%= f.number_field :source_association_id, class: source_association_id_class, placeholder: "Enter source association" %>
+    <%= f.select :source_association_id, options_from_collection_for_select(Association.all, :id, :to_s, @association.source_association_id), {}, class: "form-control" %>
     <!-- Input for source_association_id end -->
     <% if source_association_id_was_invalid %>
       <% association.errors.full_messages_for(:source_association_id).each do |message| %>
