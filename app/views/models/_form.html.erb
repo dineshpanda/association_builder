@@ -24,21 +24,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% idea_id_class = "form-control" %>
-    <% idea_id_was_invalid = model.errors.include?(:idea_id) %>
+    <% idea_class = "form-control" %>
+    <% idea_was_invalid = model.errors.include?(:idea) %>
 
     <% if was_validated %>
-      <% if idea_id_was_invalid %>
-        <% idea_id_class << " is-invalid" %>
+      <% if idea_was_invalid %>
+        <% idea_class << " is-invalid" %>
       <% else %>
-        <% idea_id_class << " is-valid" %>
+        <% idea_class << " is-valid" %>
       <% end %>
     <% end %>
 
     <%= f.label :idea_id %>
-    <%= f.select :idea_id, options_from_collection_for_select(Idea.all, :id, :to_s, @model.idea_id), {}, class: "form-control" %>
-    <% if idea_id_was_invalid %>
-      <% model.errors.full_messages_for(:idea_id).each do |message| %>
+    <%= f.collection_select :idea_id, Idea.all, :id, :to_s, {}, class: "form-control" %>
+    <% if idea_was_invalid %>
+      <% model.errors.full_messages_for(:idea).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

@@ -20,8 +20,6 @@ RSpec.describe Model, type: :model do
   describe "InDirect Associations" do
     it { should have_many(:terminus_models) }
 
-    it { should have_many(:indirect_origin_models) }
-
     it { should have_many(:indirect_terminus_models) }
   end
 

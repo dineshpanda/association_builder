@@ -9,7 +9,11 @@
       <dd><%= model.name %></dd>
 
       <dt>Idea</dt>
-      <dd><%= model.idea_id %></dd>
+      <dd>
+        <% if @model.idea.present? %>
+          <%= link_to model.idea, model.idea %>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -9,7 +9,11 @@
       <dd><%= idea.name %></dd>
 
       <dt>User</dt>
-      <dd><%= idea.user_id %></dd>
+      <dd>
+        <% if @idea.user.present? %>
+          <%= link_to idea.user, idea.user %>
+        <% end %>
+      </dd>
 
     </dl>
 
