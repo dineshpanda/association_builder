@@ -51,10 +51,10 @@ class ModelResource < ApplicationResource
     end
   end
 
-  has_many :indirect_origin_models, resource: ModelResource do
+  has_many :indirect_terminating_associations, resource: ModelResource do
     assign_each do |model, models|
       models.select do |m|
-        m.id.in?(model.indirect_origin_models.map(&:id))
+        m.id.in?(model.indirect_terminating_associations.map(&:id))
       end
     end
   end
@@ -69,7 +69,7 @@ class ModelResource < ApplicationResource
 
   filter :origin_model_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:indirect_origin_models).where(associations: { origin_model_id: value })
+      scope.eager_load(:indirect_terminating_associations).where(associations: { origin_model_id: value })
     end
   end
 

@@ -10,7 +10,7 @@
   <ul class="list-group list-group-flush">
     <% @user.ideas.each do |idea| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <%= link_to idea.to_s, idea_path(idea) %>
+        <%= link_to idea, idea_path(idea) %>
 
       </li>
     <% end %>

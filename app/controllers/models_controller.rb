@@ -3,7 +3,7 @@ class ModelsController < ApplicationController
 
   def index
     @q = Model.ransack(params[:q])
-    @models = @q.result(distinct: true).includes(:originating_associations, :terminating_associations, :direct_originating_associations, :direct_terminating_associations, :indirect_originating_associations, :indirect_terminating_associations, :idea, :indirect_terminus_models, :indirect_origin_models, :terminus_models, :terminating_associations).page(params[:page]).per(10)
+    @models = @q.result(distinct: true).includes(:originating_associations, :terminating_associations, :direct_originating_associations, :direct_terminating_associations, :indirect_originating_associations, :indirect_terminating_associations, :idea, :indirect_terminus_models, :indirect_terminating_associations, :terminus_models, :terminating_associations).page(params[:page]).per(10)
   end
 
   def show

@@ -10,7 +10,7 @@
   <ul class="list-group list-group-flush">
     <% @model.indirect_originating_associations.each do |association| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <%= link_to association.to_s, association_path(association) %>
+        <%= link_to association, association_path(association) %>
 
         <%= link_to association, method: :delete, data: { confirm: "Do you really want to delete this association" } do %>
           <i class="fas fa-trash-alt"></i>

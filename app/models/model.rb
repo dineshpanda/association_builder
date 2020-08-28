@@ -43,7 +43,7 @@ class Model < ApplicationRecord
              through: :originating_associations,
              source: :terminus_model
 
-  has_many   :indirect_origin_models,
+  has_many   :indirect_terminating_associations,
              through: :indirect_terminating_associations,
              source: :indirect_origin_model
 

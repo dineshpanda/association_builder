@@ -10,7 +10,7 @@
   <ul class="list-group list-group-flush">
     <% @idea.models.each do |model| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <%= link_to model.to_s, model_path(model) %>
+        <%= link_to model, model_path(model) %>
 
         <%= link_to model, method: :delete, data: { confirm: "Do you really want to delete this model" } do %>
           <i class="fas fa-trash-alt"></i>
